@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-simpleMonitor 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 23:05+0200\n"
+"POT-Creation-Date: 2026-10-19 06:17+0200\n"
 "PO-Revision-Date: 2026-10-18 19:31+0200\n"
 "Last-Translator: Simple Monitor Plasma 6 port contributors\n"
 "Language-Team: German\n"
@@ -245,88 +245,94 @@ msgstr "keine gefunden"
 #: simplemonitor/qml/contents/ui/desktop/Settings.qml:236
 #, kde-format
 msgid ""
-"Windows does not offer CPU temperatures by itself. Start "
-"LibreHardwareMonitor (free, open source) as administrator and keep it "
-"running in the background – Simple Monitor then shows its temperatures "
-"automatically. NVIDIA graphics cards work without it."
+"Windows does not offer CPU temperatures by itself. Keep LibreHardwareMonitor"
+" (free, open source, start as administrator) or Core Temp (freeware) running"
+" in the background – Simple Monitor then shows their temperatures "
+"automatically. NVIDIA graphics cards work without them."
 msgstr ""
-"Windows stellt CPU-Temperaturen nicht selbst bereit. Starte "
-"LibreHardwareMonitor (kostenlos, Open Source) als Administrator und lass es "
-"im Hintergrund laufen – Simple Monitor zeigt die Temperaturen dann "
-"automatisch an. NVIDIA-Grafikkarten funktionieren auch ohne."
+"Windows stellt CPU-Temperaturen nicht selbst bereit. Lass "
+"LibreHardwareMonitor (kostenlos, Open Source, als Administrator starten) "
+"oder Core Temp (Freeware) im Hintergrund laufen – Simple Monitor zeigt die "
+"Temperaturen dann automatisch an. NVIDIA-Grafikkarten funktionieren auch "
+"ohne."
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:241
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:242
 #, kde-format
 msgid "Get LibreHardwareMonitor"
 msgstr "LibreHardwareMonitor herunterladen"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:249
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:246
+#, kde-format
+msgid "Get Core Temp"
+msgstr "Core Temp herunterladen"
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:255
 #, kde-format
 msgid "Miscellaneous"
 msgstr "Sonstiges"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:259
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:265
 #, kde-format
 msgid "CPU load indicator style:"
 msgstr "Stil der CPU-Lastanzeige:"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:260
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:266
 #, kde-format
 msgid "Colored"
 msgstr "Farbig"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:261
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:267
 #, kde-format
 msgid "Flat"
 msgstr "Flach"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:264
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:270
 #, kde-format
 msgid "CPU load indicator height:"
 msgstr "Höhe der Lastbalken:"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:272
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:278
 #, kde-format
 msgid "Update interval:"
 msgstr "Aktualisierungsintervall:"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:277
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:283
 #, kde-format
 msgctxt "Abbreviation for seconds"
 msgid "s"
 msgstr "s"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:282
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:288
 #, kde-format
 msgid "Window:"
 msgstr "Fenster:"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:284
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:290
 #, kde-format
 msgid "Lock position"
 msgstr "Position fixieren"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:285
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:291
 #, kde-format
 msgid "Always on top"
 msgstr "Immer im Vordergrund"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:286
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:292
 #, kde-format
 msgid "Start with the system"
 msgstr "Beim Systemstart öffnen"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:292
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:298
 #, kde-format
 msgid "Reset position"
 msgstr "Position zurücksetzen"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:316
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:322
 #, kde-format
 msgid "Choose a logo image"
 msgstr "Logo-Bild auswählen"
 
-#: simplemonitor/qml/contents/ui/desktop/Settings.qml:317
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:323
 #, kde-format
 msgid "Images"
 msgstr "Bilder"

@@ -3,9 +3,10 @@
 """CPU and GPU temperatures.
 
 Windows has no usable standard API for CPU temperatures. They are read from
-LibreHardwareMonitor (or OpenHardwareMonitor) if it is running – those tools
-ship the needed driver and publish their sensors via WMI. NVIDIA GPUs are also
-read directly through NVML (part of the NVIDIA driver).
+LibreHardwareMonitor (or OpenHardwareMonitor) via WMI, or from Core Temp via
+its documented shared memory – whichever of these tools is running. They ship
+the needed driver. NVIDIA GPUs are also read directly through NVML (part of
+the NVIDIA driver).
 
 Linux: psutil (hwmon: coretemp, k10temp, zenpower, amdgpu, ...) and NVML.
 
@@ -162,6 +163,88 @@ class WmiHardwareMonitorSource:
 
 
 # ---------------------------------------------------------------------------
+# Windows: Core Temp (https://www.alcpu.com/CoreTemp/developers.html)
+# Core Temp is freeware (closed source) but publishes its readings in a named
+# shared memory block with a documented layout. We only read that block, no
+# Core Temp code or DLL is used or shipped.
+
+import ctypes
+
+CORETEMP_MAPPING = "CoreTempMappingObjectEx"
+
+
+class CoreTempSharedDataEx(ctypes.Structure):
+    _pack_ = 4
+    _fields_ = [
+        ("uiLoad", ctypes.c_uint32 * 256),
+        ("uiTjMax", ctypes.c_uint32 * 128),
+        ("uiCoreCnt", ctypes.c_uint32),
+        ("uiCPUCnt", ctypes.c_uint32),
+        ("fTemp", ctypes.c_float * 256),
+        ("fVID", ctypes.c_float),
+        ("fCPUSpeed", ctypes.c_float),
+        ("fFSBSpeed", ctypes.c_float),
+        ("fMultiplier", ctypes.c_float),
+        ("sCPUName", ctypes.c_char * 100),
+        ("ucFahrenheit", ctypes.c_uint8),
+        ("ucDeltaToTjMax", ctypes.c_uint8),
+        ("ucTdpSupported", ctypes.c_uint8),
+        ("ucPowerSupported", ctypes.c_uint8),
+        ("uiStructVersion", ctypes.c_uint32),
+        ("uiTdp", ctypes.c_uint32 * 128),
+        ("fPower", ctypes.c_float * 128),
+        ("fMultipliers", ctypes.c_float * 256),
+    ]
+
+
+def parse_coretemp(data: CoreTempSharedDataEx):
+    """Converts Core Temp's shared data into a TempReading (None if empty)."""
+    cores_per_cpu, cpus = int(data.uiCoreCnt), max(1, int(data.uiCPUCnt))
+    total = min(256, cores_per_cpu * cpus)
+    if cores_per_cpu <= 0 or total <= 0:
+        return None
+    r = TempReading(source="Core Temp")
+    for i in range(total):
+        v = float(data.fTemp[i])
+        if data.ucDeltaToTjMax:                      # value is "distance to TjMax"
+            v = float(data.uiTjMax[min(127, i // cores_per_cpu)]) - v
+        if data.ucFahrenheit:
+            v = (v - 32.0) * 5.0 / 9.0
+        v = _num(v)
+        if not math.isnan(v):
+            r.cores.append(v)
+    return r.finish() if r.cores else None
+
+
+class CoreTempSource:
+    FILE_MAP_READ = 0x0004
+
+    def read(self):
+        if sys.platform != "win32":
+            return None
+        k32 = ctypes.windll.kernel32
+        k32.OpenFileMappingW.restype = ctypes.c_void_p
+        k32.MapViewOfFile.restype = ctypes.c_void_p
+        # OpenFileMapping only opens an existing block – it never creates one,
+        # so nothing changes for Core Temp when it is not running.
+        handle = k32.OpenFileMappingW(self.FILE_MAP_READ, False, CORETEMP_MAPPING)
+        if not handle:
+            return None
+        try:
+            view = k32.MapViewOfFile(ctypes.c_void_p(handle), self.FILE_MAP_READ, 0, 0, 0)
+            if not view:
+                return None
+            try:
+                data = CoreTempSharedDataEx()
+                ctypes.memmove(ctypes.byref(data), ctypes.c_void_p(view), ctypes.sizeof(data))
+                return parse_coretemp(data)
+            finally:
+                k32.UnmapViewOfFile(ctypes.c_void_p(view))
+        finally:
+            k32.CloseHandle(ctypes.c_void_p(handle))
+
+
+# ---------------------------------------------------------------------------
 # Linux: psutil / hwmon
 
 class PsutilSource:
@@ -228,13 +311,27 @@ class TemperatureCollector:
                 pythoncom.CoInitialize()
             except Exception:
                 pass
-            primary = WmiHardwareMonitorSource()
+            sources = [WmiHardwareMonitorSource(), CoreTempSource()]
         else:
-            primary = PsutilSource()
+            sources = [PsutilSource()]
         nvml = NvmlSource()
         while not self._stop.is_set():
             try:
-                r = primary.read() or TempReading()
+                r = None
+                gpus_seen = []
+                for src in sources:
+                    got = src.read()
+                    if got is None:
+                        continue
+                    gpus_seen += got.gpus
+                    # first source with CPU values wins (LibreHardwareMonitor before Core Temp)
+                    if got.cores or not math.isnan(got.package):
+                        r = got
+                        break
+                    r = r or got
+                r = r or TempReading()
+                if not r.gpus and gpus_seen:
+                    r.gpus = gpus_seen
                 if nvml.ok:
                     has_nvidia = any(n.upper() == "NVIDIA" or n == "nouveau" for n, _t in r.gpus)
                     if not has_nvidia:

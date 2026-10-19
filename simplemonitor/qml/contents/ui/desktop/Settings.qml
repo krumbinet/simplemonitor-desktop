@@ -233,13 +233,19 @@ ApplicationWindow {
                     }
                     Hint {
                         visible: app.isWindows
-                        text: i18n("Windows does not offer CPU temperatures by itself. Start LibreHardwareMonitor (free, open source) as administrator and keep it running in the background – Simple Monitor then shows its temperatures automatically. NVIDIA graphics cards work without it.")
+                        text: i18n("Windows does not offer CPU temperatures by itself. Keep LibreHardwareMonitor (free, open source, start as administrator) or Core Temp (freeware) running in the background – Simple Monitor then shows their temperatures automatically. NVIDIA graphics cards work without them.")
                     }
-                    Button {
+                    RowLayout {
                         visible: app.isWindows
                         Layout.leftMargin: 202
-                        text: i18n("Get LibreHardwareMonitor")
-                        onClicked: Qt.openUrlExternally("https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases")
+                        Button {
+                            text: i18n("Get LibreHardwareMonitor")
+                            onClicked: Qt.openUrlExternally("https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases")
+                        }
+                        Button {
+                            text: i18n("Get Core Temp")
+                            onClicked: Qt.openUrlExternally("https://www.alcpu.com/CoreTemp/")
+                        }
                     }
                 }
             }

@@ -81,6 +81,23 @@ def test_hwmon(monkeypatch=None):
     assert r.gpus == [("amdgpu", 44.0)]
 
 
+def test_coretemp():
+    d = T.CoreTempSharedDataEx()
+    assert T.ctypes.sizeof(d) == 4740          # size of the documented layout
+    assert T.parse_coretemp(d) is None         # Core Temp not running / empty block
+    d.uiCoreCnt, d.uiCPUCnt = 4, 1
+    for i, v in enumerate([40.0, 42.0, 44.0, 46.0]):
+        d.fTemp[i] = v
+    r = T.parse_coretemp(d)
+    assert r.cores == [40.0, 42.0, 44.0, 46.0] and r.maximum == 46.0 and r.average == 43.0
+    assert r.source == "Core Temp"
+    d.ucDeltaToTjMax, d.uiTjMax[0] = 1, 100    # "distance to TjMax" mode
+    assert T.parse_coretemp(d).cores == [60.0, 58.0, 56.0, 54.0]
+    d.ucDeltaToTjMax, d.ucFahrenheit = 0, 1     # Fahrenheit mode
+    d.fTemp[0] = 104.0
+    assert T.parse_coretemp(d).cores[0] == 40.0
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

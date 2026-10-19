@@ -6,8 +6,9 @@
 3. Right click on the widget for the menu (settings, lock position, start with Windows, …).
 
 ### CPU temperatures
-Windows does not provide CPU temperatures to normal programs. Install and start
-[LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases) as administrator
-and keep it running – Simple Monitor picks up its sensors automatically. NVIDIA GPU temperatures work without it.
+Windows does not provide CPU temperatures to normal programs. Keep
+[LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases) (start as administrator)
+or [Core Temp](https://www.alcpu.com/CoreTemp/) running – Simple Monitor picks up their sensors automatically.
+NVIDIA GPU temperatures work without them.
 
 See [CHANGELOG.md](CHANGELOG.md) for details. Feedback and bug reports: [Issues](https://github.com/krumbinet/simplemonitor-desktop/issues).

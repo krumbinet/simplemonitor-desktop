@@ -34,12 +34,16 @@ Install on Windows
 
 ### CPU temperatures on Windows
 
-Windows does not give normal programs access to CPU temperatures. Install
-[LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases)
-(free, open source), start it **as administrator** and keep it running (it can
-start minimized with Windows). Simple Monitor reads its sensors automatically
-via WMI; OpenHardwareMonitor works as well. Without it, CPU temperatures are
-simply hidden. **NVIDIA** GPU temperatures work without any extra tool.
+Windows does not give normal programs access to CPU temperatures. Keep one of
+these tools running in the background (both can start minimized with Windows):
+
+- [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases)
+  (free, open source) – start it **as administrator**. Read via WMI; OpenHardwareMonitor works as well.
+- [Core Temp](https://www.alcpu.com/CoreTemp/) (freeware) – read via its documented
+  [shared memory interface](https://www.alcpu.com/CoreTemp/developers.html).
+
+If both run, LibreHardwareMonitor is used. Without them, CPU temperatures are simply
+hidden. **NVIDIA** GPU temperatures work without any extra tool.
 
 Run on Linux / from source
 --------------------------
@@ -78,7 +82,7 @@ Development
 simplemonitor/            Python package
   app.py                  start-up, window, tray/menu, settings window
   systemdata.py           sensor values for QML ("sysData") – same API as SystemData.qml of the Plasma widget
-  sources/temperatures.py LibreHardwareMonitor (WMI), hwmon (psutil), NVIDIA (NVML)
+  sources/temperatures.py LibreHardwareMonitor (WMI), Core Temp (shared memory), hwmon (psutil), NVIDIA (NVML)
   config.py               settings (JSON) exposed to QML as "cfg"
   qml/contents/           skins, widgets, fonts, images – shared with the Plasma widget
   qml/contents/ui/desktop Widget.qml (window), Settings.qml
@@ -137,12 +141,15 @@ Installation unter Windows
 
 ### CPU-Temperaturen unter Windows
 
-Windows gibt normalen Programmen keinen Zugriff auf CPU-Temperaturen. Dafür
-[LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases)
-(kostenlos, Open Source) installieren, **als Administrator** starten und laufen
-lassen (es kann minimiert mit Windows starten). Simple Monitor liest die Werte dann
-automatisch. Ohne das Programm werden die CPU-Temperaturen ausgeblendet.
-**NVIDIA**-Grafikkarten funktionieren auch ohne.
+Windows gibt normalen Programmen keinen Zugriff auf CPU-Temperaturen. Dafür eines
+dieser Programme im Hintergrund laufen lassen (beide können minimiert mit Windows starten):
+
+- [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases)
+  (kostenlos, Open Source) – **als Administrator** starten.
+- [Core Temp](https://www.alcpu.com/CoreTemp/) (Freeware).
+
+Simple Monitor liest die Werte dann automatisch. Ohne eines davon werden die
+CPU-Temperaturen ausgeblendet. **NVIDIA**-Grafikkarten funktionieren auch ohne.
 
 Einstellungen und Protokoll
 ---------------------------

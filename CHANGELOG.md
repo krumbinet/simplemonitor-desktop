@@ -8,7 +8,7 @@ First version.
 - Standalone desktop program (Qt 6 / PySide6) with the skins of the Plasma 6 widget
   plasma-simplemonitor6 0.7.1 (Default, Column, Minimalistic).
 - Windows: OS name/build from the registry, CPU temperatures from LibreHardwareMonitor /
-  OpenHardwareMonitor (WMI), autostart via the registry, own neutral logo.
+  OpenHardwareMonitor (WMI) or Core Temp (shared memory), autostart via the registry, own neutral logo.
 - Linux: os-release, hwmon temperatures (psutil), XDG autostart, distribution logo from the icon theme.
 - NVIDIA GPU temperatures via NVML on both systems.
 - Frameless transparent window: drag to move, lock position, always on top or below,
