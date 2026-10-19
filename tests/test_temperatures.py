@@ -65,12 +65,17 @@ def test_hwmon(monkeypatch=None):
             "amdgpu": [E("edge", 44.0), E("junction", 50.0)],
             "nvme": [E("Composite", 32.9)]}
     import psutil
-    old = psutil.sensors_temperatures
+    # psutil has no sensors_temperatures() on Windows/macOS – add it temporarily
+    missing = object()
+    old = getattr(psutil, "sensors_temperatures", missing)
     psutil.sensors_temperatures = lambda: fake
     try:
         r = T.PsutilSource().read()
     finally:
-        psutil.sensors_temperatures = old
+        if old is missing:
+            del psutil.sensors_temperatures
+        else:
+            psutil.sensors_temperatures = old
     assert r.cores == [33.0, 35.0] and r.package == 48.0
     assert r.maximum == 48.0 and math.isclose(r.average, 34.0)
     assert r.gpus == [("amdgpu", 44.0)]
