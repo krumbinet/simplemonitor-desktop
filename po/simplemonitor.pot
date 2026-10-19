@@ -1,0 +1,436 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-18 23:05+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:19
+#, kde-format
+msgid "Simple Monitor – Settings"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:55
+#, kde-format
+msgid "Close"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:75
+#, kde-format
+msgid "Appearance"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:85
+#, kde-format
+msgid "Skin:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:88
+#, kde-format
+msgid "Default"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:88
+#, kde-format
+msgid "Column"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:88
+#, kde-format
+msgid "Minimalistic"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:105
+#, kde-format
+msgid "Background color:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:107
+#, kde-format
+msgid "Black"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:107
+#, kde-format
+msgid "Transparent"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:107
+#, kde-format
+msgid "Translucent"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:115
+#, kde-format
+msgid "Size:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:127
+#, kde-format
+msgid "Logo:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:130
+#, kde-format
+msgid "Automatic"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:130
+#, kde-format
+msgid "Tux"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:130
+#, kde-format
+msgid "Slackware"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:130
+#, kde-format
+msgid "Ubuntu"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:130
+#, kde-format
+msgid "Kubuntu"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:131
+#, kde-format
+msgid "OpenSUSE"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:131
+#, kde-format
+msgid "Manjaro"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:131
+#, kde-format
+msgid "Arch"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:131
+#, kde-format
+msgid "Fedora"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:131
+#, kde-format
+msgid "Debian"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:138
+#, kde-format
+msgid "Own logo image:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:142
+#, kde-format
+msgid "none"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:146
+#, kde-format
+msgid "Choose…"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:150
+#, kde-format
+msgid "Remove"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:156
+#, kde-format
+msgid ""
+"An own image (PNG, SVG, JPG) is shown when the logo is set to \"Automatic\". "
+"The logo size can be changed from the right-click menu."
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:163
+#, kde-format
+msgid "Show:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:170
+#, kde-format
+msgid "GPU Temperature"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:171
+#, kde-format
+msgid "Swap"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:172
+#, kde-format
+msgid "Uptime"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:178
+#, kde-format
+msgid "Temperature settings:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:188
+#, kde-format
+msgid "Temperature units:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:190
+#, kde-format
+msgid "Celsius °C"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:190
+#, kde-format
+msgid "Fahrenheit °F"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:197
+#, kde-format
+msgid "CPU temperature:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:199
+#, kde-format
+msgid "Every core"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:199
+#, kde-format
+msgid "Average only"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:199
+#, kde-format
+msgid "Maximum only"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:206
+#, kde-format
+msgid "CPU High Temperature:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:216
+#, kde-format
+msgid "CPU Critical Temperature:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:226
+#, kde-format
+msgid "Temperature source:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:230
+#, kde-format
+msgid "none found"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:236
+#, kde-format
+msgid ""
+"Windows does not offer CPU temperatures by itself. Start "
+"LibreHardwareMonitor (free, open source) as administrator and keep it "
+"running in the background – Simple Monitor then shows its temperatures "
+"automatically. NVIDIA graphics cards work without it."
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:241
+#, kde-format
+msgid "Get LibreHardwareMonitor"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:249
+#, kde-format
+msgid "Miscellaneous"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:259
+#, kde-format
+msgid "CPU load indicator style:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:260
+#, kde-format
+msgid "Colored"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:261
+#, kde-format
+msgid "Flat"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:264
+#, kde-format
+msgid "CPU load indicator height:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:272
+#, kde-format
+msgid "Update interval:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:277
+#, kde-format
+msgctxt "Abbreviation for seconds"
+msgid "s"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:282
+#, kde-format
+msgid "Window:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:284
+#, kde-format
+msgid "Lock position"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:285
+#, kde-format
+msgid "Always on top"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:286
+#, kde-format
+msgid "Start with the system"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:292
+#, kde-format
+msgid "Reset position"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:316
+#, kde-format
+msgid "Choose a logo image"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/desktop/Settings.qml:317
+#, kde-format
+msgid "Images"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/AverageCPU.qml:41
+#: simplemonitor/qml/contents/ui/monitorWidgets/CoreTempList.qml:59
+#, kde-format
+msgid "CPU:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/AverageCPU.qml:46
+#, kde-format
+msgid "%1%"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/CoreTempList.qml:45
+#, kde-format
+msgid "Core %1:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/CoreTempList.qml:59
+#, kde-format
+msgid "CPU max:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/CpuWidget.qml:55
+#, kde-format
+msgid "CPU %1:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/MemArea.qml:39
+#, kde-format
+msgid "Mem:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/MemArea.qml:44
+#: simplemonitor/qml/contents/ui/monitorWidgets/MemArea.qml:60
+#: simplemonitor/qml/contents/ui/monitorWidgets/MemArea.qml:70
+#, kde-format
+msgid "%1 GiB"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/MemArea.qml:55
+#, kde-format
+msgid "Used:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/MemArea.qml:65
+#, kde-format
+msgid "Free:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/UptimePicker.qml:23
+#, kde-format
+msgid "Uptime:"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/monitorWidgets/UptimePicker.qml:28
+#, kde-format
+msgid "%1d %2:%3"
+msgstr ""
+
+#: simplemonitor/qml/contents/ui/skins/ColumnSkin.qml:188
+#: simplemonitor/qml/contents/ui/skins/DefaultSkin.qml:214
+#: simplemonitor/qml/contents/ui/skins/MinimalisticSkin.qml:128
+#, kde-format
+msgid "Swap:"
+msgstr ""
+
+#: simplemonitor/app.py:72
+msgid "Settings…"
+msgstr ""
+
+#: simplemonitor/app.py:80 simplemonitor/app.py:98
+msgid "Unlock image scaling"
+msgstr ""
+
+#: simplemonitor/app.py:87 simplemonitor/app.py:138
+msgid "About Simple Monitor"
+msgstr ""
+
+#: simplemonitor/app.py:88
+msgid "Quit"
+msgstr ""
+
+#: simplemonitor/app.py:98
+msgid "Lock image scaling"
+msgstr ""
+
+#: simplemonitor/app.py:140
+msgid "Clock, CPU load, temperatures and memory on your desktop."
+msgstr ""
+
+#: simplemonitor/app.py:142
+msgid ""
+"Based on the KDE Plasma widget plasma-simpleMonitor by Dhaby Xiloj and "
+"Konstantin Shtepa. Plasma 6 version:"
+msgstr ""
+
+#: simplemonitor/app.py:144
+msgid "License: GNU GPL version 3 or later. Fonts: SIL Open Font License."
+msgstr ""
+
+#: simplemonitor/app.py:145
+msgid "Settings and log file:"
+msgstr ""
+
+#: simplemonitor/systemdata.py:105
+msgid "GPU:"
+msgstr ""
+
+#: simplemonitor/systemdata.py:105
+msgid "GPU %1:"
+msgstr ""

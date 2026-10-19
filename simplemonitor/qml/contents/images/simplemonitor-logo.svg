@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 krumbinet and Simple Monitor contributors
+     SPDX-License-Identifier: GPL-3.0-or-later
+     Neutral logo of Simple Monitor Desktop (used where no distribution logo applies). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <circle cx="128" cy="128" r="124" fill="#1f2a33" stroke="#7ec264" stroke-width="6"/>
+  <rect x="52" y="62" width="152" height="104" rx="10" fill="#0e1419" stroke="#e8e8e8" stroke-width="8"/>
+  <polyline points="64,122 92,122 104,94 120,146 136,104 148,122 192,122" fill="none" stroke="#7ec264" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="112" y="166" width="32" height="20" fill="#e8e8e8"/>
+  <rect x="84" y="184" width="88" height="10" rx="5" fill="#e8e8e8"/>
+</svg>

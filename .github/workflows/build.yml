@@ -1,0 +1,70 @@
+# SPDX-FileCopyrightText: 2026 krumbinet and Simple Monitor contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# Builds the Windows program on every push. The result can be downloaded from
+# the "Actions" tab (artifact). For a tag "v*" it is also attached to a GitHub
+# release automatically.
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt -r requirements-build.txt
+
+      - name: Compile translations
+        run: python tools/compile_translations.py
+
+      - name: Tests
+        run: python tests/test_temperatures.py
+
+      - name: Build with PyInstaller
+        run: pyinstaller packaging/simplemonitor.spec --noconfirm
+
+      - name: Smoke test (start, screenshot, quit)
+        continue-on-error: true
+        shell: pwsh
+        env:
+          SIMPLEMONITOR_SCREENSHOT: ${{ github.workspace }}\smoke
+        run: |
+          $p = Start-Process dist\SimpleMonitor\SimpleMonitor.exe -ArgumentList "--settings" -PassThru
+          if (-not $p.WaitForExit(60000)) { $p.Kill(); throw "did not quit" }
+          if (-not (Test-Path smoke-widget.png)) { throw "no screenshot – see log" }
+
+      - name: Zip
+        shell: pwsh
+        run: |
+          $name = "SimpleMonitor-${{ github.ref_name }}-windows-x64.zip" -replace '/', '-'
+          Compress-Archive -Path dist\SimpleMonitor -DestinationPath $name
+          echo "ZIP=$name" >> $env:GITHUB_ENV
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SimpleMonitor-windows-x64
+          path: |
+            ${{ env.ZIP }}
+            smoke-*.png
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ZIP }}
+          body_path: RELEASE_NOTES.md
